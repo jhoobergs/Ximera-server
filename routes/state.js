@@ -6,6 +6,7 @@ var crypto = require('crypto');
 var repositories = require('./repositories');
 var mongo = require('mongodb');
 var unique = require('uniq');
+var config = require('../config');
 
 var CANON = require('canon');
 var XXHash = require('xxhash');
@@ -16,14 +17,14 @@ function checksumObject(object) {
 exports.wss = undefined;
 
 var redis = require('redis');
-var publisher = redis.createClient();
+var publisher = redis.createClient({ host: config.redis.url, port: config.redis.port });
 
 class Building {
     constructor(name) {
 	var building = this;
 	building.name = name;
 	building.rooms = {};
-	building.client = redis.createClient();
+	building.client = redis.createClient({ host: config.redis.url, port: config.redis.port });
 	building.client.on("message", function(channel, message) {
 	    if (building.rooms[channel]) {
 		building.rooms[channel].forEach( function(socket) {

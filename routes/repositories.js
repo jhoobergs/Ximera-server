@@ -25,7 +25,7 @@ var redis = require('redis');
 var state = require('./state');
 
 // create a new redis client and connect to our local redis instance
-var client = redis.createClient();
+var client = redis.createClient({ host: config.redis.url, port: config.redis.port });
 
 // if an error occurs, print it to the console
 client.on('error', function (err) {

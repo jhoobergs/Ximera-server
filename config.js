@@ -57,6 +57,13 @@ config.mongodb.url      = process.env.XIMERA_MONGO_URL || '127.0.0.1';
 config.mongodb.database = process.env.XIMERA_MONGO_DATABASE || 'ximera';
 
 /**
+ * Redis Configuration
+ */
+config.redis = {};
+config.redis.url = process.env.XIMERA_REDIS_URL || '127.0.0.1'
+config.redis.port = process.env.XIMERA_REDIS_PORT || 6379;
+
+/**
  * Session Configuration
  */
 

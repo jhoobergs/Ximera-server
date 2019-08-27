@@ -1,7 +1,8 @@
 var redis = require('redis');
+var config = require('../config');
 
 // create a new redis client and connect to our local redis instance
-var client = redis.createClient({return_buffers: true});
+var client = redis.createClient({ host: config.redis.url, port: config.redis.port, return_buffers: true});
 
 // if an error occurs, print it to the console
 client.on('error', function (err) {
