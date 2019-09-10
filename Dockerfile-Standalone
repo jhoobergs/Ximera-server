@@ -1,0 +1,10 @@
+FROM node:11
+RUN apt-get update
+RUN apt-get install -y curl git libcurl4-gnutls-dev libgit2-dev libssl-dev
+RUN apt-get install -y mongodb redis-server
+WORKDIR /usr/var/server
+COPY package*.json /usr/var/server/
+RUN npm install
+COPY . /usr/var/server
+VOLUME /data/db
+CMD bash start.sh

@@ -1,9 +1,7 @@
 "use strict";
 
 var argv = require('yargs').argv,
-
     gulp       = require('gulp'),
-    gutil      = require('gulp-util'),
     gulpif     = require('gulp-if'),
     puglint    = require('gulp-pug-lint'),
     source     = require('vinyl-source-stream'),
@@ -174,11 +172,11 @@ gulp.task('css-standalone', function(){
 gulp.task('watchify', function() {
     var watcher  = watchify(bundler);
     return watcher
-	.on('error', gutil.log.bind(gutil, 'Browserify Error'))
-        .on('log', gutil.log) // output build logs to terminal
+	.on('error', console.error)
+        .on('log', console.log) // output build logs to terminal
 	.on('update', function () {
 	    buildPipeline(watcher);
-            gutil.log("Updated JavaScript sources");
+            console.log("Updated JavaScript sources");
     })
     .bundle() // Create the initial bundle when starting the task
     .pipe(source(jsBundleFile))
@@ -199,6 +197,6 @@ gulp.task('lint', function () {
 	.pipe(puglint());
 });
 
-gulp.task('watch', ['watchify', 'csswatch', 'service-worker-watch']);
-gulp.task('default', ['js', 'css', 'css-standalone', 'service-worker', 'standalone']);
+gulp.task('watch', gulp.series('watchify', 'csswatch', 'service-worker-watch'));
+gulp.task('default', gulp.series('js', 'css', 'css-standalone', 'service-worker', 'standalone'));
 
