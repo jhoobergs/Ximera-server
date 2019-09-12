@@ -87,8 +87,13 @@ MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
 MathJax.Hub.processSectionDelay = 0;
 MathJax.Hub.processUpdateTime = 0;
 
+MathJax.Hub.Register.StartupHook("End", function () {
+	console.log('Showing')
+	$("#loadingSpinner").hide()
+	$("#theActivity").removeClass('hidden')
+ });
+
 MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-    
     // Remove CDATA's from the script tags
     MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
 	data.math = data.math.replace(/<!\[CDATA\[\s*((.|\n)*)\s*\]\]>/m,"$1");
