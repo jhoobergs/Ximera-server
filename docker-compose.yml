@@ -11,6 +11,8 @@ services:
       - PORT=2000
       - XIMERA_MONGO_URL=mongo
       - XIMERA_REDIS_URL=redis
+    volumes:
+      - repos:/usr/var/repositories
   redis:
     image: redis
     ports:
@@ -21,4 +23,9 @@ services:
       - MONGO_INITDB_DATABASE=ximera
     ports:
      - "27017:27017"
+    volumes:
+     - mongodata:/data/db
+volumes:
+  repos:
+  mongodata:
 
