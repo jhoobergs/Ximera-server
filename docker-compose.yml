@@ -12,7 +12,8 @@ services:
       - XIMERA_MONGO_URL=mongo
       - XIMERA_REDIS_URL=redis
     volumes:
-      - repos:/usr/var/repositories
+      - repos:/usr/var/server/repositories
+      - gpg:/root/.gnupg
   redis:
     image: redis
     ports:
@@ -27,5 +28,6 @@ services:
      - mongodata:/data/db
 volumes:
   repos:
+  gpg:
   mongodata:
 
