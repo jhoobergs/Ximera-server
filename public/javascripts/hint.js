@@ -11,7 +11,8 @@ var createHint = function() {
     hint.collapse('hide');
 
     var button = $(buttonHtml);
-    hint.before(button);
+	hint.wrap('<div></div>')
+	hint.before(button)
 
     button.click( function() {
 	if (hint.persistentData( 'collapsed' )) {
