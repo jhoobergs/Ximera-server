@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ximera:
+    image: set-registry.repo.icts.kuleuven.be/dsb/ximera-server-standalone:latest
+    ports:
+    - "2000:2000"
+    environment:
+      - PORT=2000
+    volumes:
+      - repos:/usr/var/server/repositories
+      - gpg:/root/.gnupg
+      - mongodata:/data/db
+volumes:
+  repos:
+  gpg:
+  mongodata:
+
