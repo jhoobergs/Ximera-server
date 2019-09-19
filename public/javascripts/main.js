@@ -88,9 +88,9 @@ MathJax.Hub.processSectionDelay = 0;
 MathJax.Hub.processUpdateTime = 0;
 
 MathJax.Hub.Register.StartupHook("End", function () {
-	console.log('Showing')
-	$("#loadingSpinner").hide()
-	$("#theActivity").removeClass('hidden')
+	console.log('Showing') 
+	$("#loadingSpinner").hide() 
+	//$("#theActivity").removeClass('hidden') // Currently, the hidden class is not set
  });
 
 MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
@@ -459,7 +459,10 @@ $(document).ready(function() {
     // Make anchors with references from \ref actually work
     $('a.ximera-label').texLabel();
     $('a.reference').reference();
-    references.highlightTarget();
+	references.highlightTarget();
+	
+	// This could go in "init" above, but it needs to be after the end process hook
+	MathJax.Hub.Startup.onload();
     
     // BADBAD: This seems like the wrong thing---why is default here?
     syntaxHighlighter.default.highlight();
@@ -509,9 +512,6 @@ $(document).ready(function() {
     $(".dropdown-toggle").dropdown();
 
     $('[data-toggle="tooltip"]').tooltip();
-
-    // This could go in "init" above, but it needs to be after the end process hook
-    MathJax.Hub.Startup.onload();
 
     $(".activity").activity();
 });
