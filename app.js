@@ -527,6 +527,10 @@ passport.deserializeUser(function(id, done) {
 	    console.log('Express server listening on port ' + app.get('port'));
         });		    
     }
+
+    app.get('/crash', function(req,res) {
+        process.exit(1)
+    })
         
     // If nothing else matches, it is a 404
     app.use(function(req, res, next){
