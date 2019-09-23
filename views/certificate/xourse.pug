@@ -20,7 +20,7 @@ block content
             dd &nbsp;
           else
             dt.page
-              a(href=activityUrl) !{activity.title}
+              a(href=toValidPath(activityUrl)) !{activity.title}
             dd #{percent(activity.completion)}
         hr
         dt.total Overall

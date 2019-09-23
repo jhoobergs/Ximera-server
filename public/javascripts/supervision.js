@@ -81,7 +81,7 @@ function completion( userId, repositoryName, activityPath, complete ) {
 	card.attr('data-path', activityPath);
 	card.attr('data-complete', complete);
 
-	var url = '/users/' + userId + '/' + repositoryName + '/' + activityPath;
+	var url = toValidPath('/users/' + userId + '/' + repositoryName + '/' + activityPath);
 	card.prepend($('<div class="media-body" style="overflow: hidden;"><h5 class="d-flex align-items-center"><div style="width: 48pt;" class="mr-2 progress h-100"><div class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div></div><a style="text-overflow: ellipsis; overflow: hidden;" href="' + url + '">' + repositoryName + '/' + activityPath + '</a></h5></div>'));
 	
 	$('.supervised-completions', user).prepend(card);

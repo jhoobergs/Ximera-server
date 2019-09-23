@@ -13,7 +13,7 @@ block content
     for xourse in xourses  
       if xourse.title
         .card.m-2.xourse-card(style="width: 30%;")
-          a(href=`/${repositoryName}/${xourse.path}`)
+          a(href=toValidPath(`/${repositoryName}/${xourse.path}`))
           if xourse.logo
             img.card-img-top(src=`${repositoryName}/${xourse.logo}`,style="width: 100%;")
           else
