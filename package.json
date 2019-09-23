@@ -38,6 +38,7 @@
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "express-basic-auth": "1.2.0",
     "express-rate-limit": "^2.7.0",
     "express-session": "^1.16.2",
     "express-winston": "^2.5.1",

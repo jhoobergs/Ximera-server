@@ -42,7 +42,8 @@ var express = require('express')
   , sendSeekable = require('send-seekable')
   , url = require('url')
   , versionator = require('versionator')
-  , WebSocketServer = require("ws").Server 
+  , WebSocketServer = require("ws").Server
+  , basicAuth = require('express-basic-auth')
   ;
 
 // Some filters for Pug; admittedly, Pug comes with its own Markdown
@@ -520,17 +521,20 @@ passport.deserializeUser(function(id, done) {
     app.get( '/:repository',
 	     redirectUnnormalizeRepositoryName,	     	     
 	     page.mostRecentMetadata,
-	     xourses.index );
+         xourses.index );
+         
+    app.get('/crash', basicAuth({
+        users: { 'brol': 'brolishandig' },
+        challenge: true 
+    }), function (req, res) {
+        process.exit(1)
+    })
     
     if(!module.parent){
         server.listen(app.get('port'), function(stream){
 	    console.log('Express server listening on port ' + app.get('port'));
         });		    
-    }
-
-    app.get('/crash', function(req,res) {
-        process.exit(1)
-    })
+    }    
         
     // If nothing else matches, it is a 404
     app.use(function(req, res, next){
