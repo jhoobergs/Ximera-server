@@ -34,11 +34,11 @@ block content
     ol.breadcrumb
       li.breadcrumb-item
         - var level = 1;
-        a(href="/" + repositoryName, aria-level=level)
+        a(href=toValidPath("/" + repositoryName), aria-level=level)
             | !{repositoryName}
       li.breadcrumb-item
         - level = level + 1;
-        a(href="/" + repositoryName + "/" + xourse.path,aria-level=level)
+        a(href=toValidPath("/" + repositoryName + "/" + xourse.path),aria-level=level)
           if (xourse.title) && (xourse.title != '')
             | !{xourse.title}
           else

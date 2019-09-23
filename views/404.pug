@@ -13,4 +13,4 @@ block content
         h3 De pagina die je wilt bezoeken, kan niet worden gevonden.
         p Ik kon de pagina <code>#{url}</code> niet vinden, maar ik zal de reden van dit probleem onderzoeken.
         if repositoryName
-          p In de tussentijd, kan je naar <a href="/#{repositoryName}"><code>#{repositoryName}</code></a> gaan om te vinden wat je zoekt.
+          p In de tussentijd, kan je naar <a href=#{toValidPath("/"+repositoryName)}><code>#{repositoryName}</code></a> gaan om te vinden wat je zoekt.

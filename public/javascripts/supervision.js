@@ -16,7 +16,7 @@ function getUser( userId ) {
 	var image = $('<img class="d-flex mr-3">');
 	user.prepend(image);
 
-	var body = $('<div class="media-body" style="overflow: hidden;"><h5 class="mt-0"><a href="/users/' + userId + '"><span class="supervised-name"></span></a> <small><a class="supervised-email"href="#"></a></small></h5><div class="supervised-completions"></div></div>');
+	var body = $('<div class="media-body" style="overflow: hidden;"><h5 class="mt-0"><a href="' + config.toValidPath('/users/'+userId) + '"><span class="supervised-name"></span></a> <small><a class="supervised-email"href="#"></a></small></h5><div class="supervised-completions"></div></div>');
 	user.append(body);
 	
 	supervision.append(user);
