@@ -6,7 +6,7 @@ console.log("This is XIMERA, Version " + version );
 
 $(function() {
     // Check which version the server is providing, avoiding the cache
-    $.ajax( "/version?" + (new Date().getTime()) )
+	$.ajax(window.toValidPath("/version?") + (new Date().getTime()) )
 	.done(function(data) {    
 	    // If the server can offer a newer version, let's update
 	    if (data != version) {
