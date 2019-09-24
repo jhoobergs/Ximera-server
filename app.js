@@ -53,7 +53,7 @@ var pug = require('pug');
 var md = require("markdown");
 pug.filters.ximera = function(str){
     return str
-	.replace(/Ximera/g, `<a class="ximera" href=${config.toValidPath('/')}>Ximera</a>`)
+	.replace(/Ximera/g, '<a class="ximera" href="/">Ximera</a>')
 	.replace(/---/g, '&mdash;')
 	.replace(/--/g, '&ndash;')
     ;
@@ -236,9 +236,6 @@ passport.deserializeUser(function(id, done) {
 	}
 	return url;	
     };
-
-    app.locals.toValidPath = config.toValidPath
-
     app.use('/public', versionator.middleware);
     app.use('/public', express.static(path.join(__dirname, 'public'), {maxAge: '1y'}));;
     app.use('/lib/guppy', express.static(path.join(__dirname, 'node_modules/guppy-dev/lib'), {maxAge: '1y'}));

@@ -33,7 +33,7 @@ window.MathJax = {
 	}
     },
 
-    root: window.toValidPath("/node_modules/mathjax/")
+    root: "/node_modules/mathjax/"
 };
 
 if (window.standalone)

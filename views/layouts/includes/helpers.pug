@@ -2,7 +2,7 @@ mixin breadcrumbs(links,titles)
   nav(aria-label="Breadcrumb",class="breadcrumb")
     ul.breadcrumb
       li
-        a(href=toValidPath("/"))
+        a(href="/")
           | Home
       - var i = 0;
       - var linkCount = links.length

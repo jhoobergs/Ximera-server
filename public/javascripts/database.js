@@ -1,6 +1,7 @@
 /*
   The 'database' provides a mechanism for saving page state to the server.
 */
+
 var $ = require('jquery');
 var _ = require('underscore');
 var async = require('async');
@@ -11,7 +12,6 @@ var users = require('./users');
 
 var CANON = require('canon');
 var XXH = require('xxhashjs');
-
 function checksumObject(object) {
     return XXH.h32( CANON.stringify( object ), 0x1337 ).toString(16);
 }
@@ -244,7 +244,7 @@ function connectToServer() {
     if (window.location.protocol === "https:") {
 	websocketUrl = "wss:";
     }
-    websocketUrl += "//" + window.location.host + window.toValidPath("/ws");
+    websocketUrl += "//" + window.location.host + "/ws";
 
     saveWorkStatus( 'error', "Connecting..." );
     

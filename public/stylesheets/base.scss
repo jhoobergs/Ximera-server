@@ -1,9 +1,9 @@
-@import "./node_modules/guppy-dev/build/guppy-default.min";
+@import "/node_modules/guppy-dev/build/guppy-default.min.css";
 @import "guppy-fixes";
 
 @import "flash";
 
-@import "./node_modules/codemirror/lib/codemirror";
+@import "/node_modules/codemirror/lib/codemirror.css";
 
 $enable-rounded: false;
 
@@ -42,7 +42,7 @@ $red:    #bb0000 !default;
 @import "pulsate";
 
 // Font-awesome includes its own cache busting code
-$fa-font-path:        '/voorkennis/node_modules/font-awesome/fonts/';
+$fa-font-path:        '/node_modules/font-awesome/fonts/';
 @import "./node_modules/font-awesome/scss/font-awesome.scss";
 
 /* The theorem environments live in theorems.scss. If you add more

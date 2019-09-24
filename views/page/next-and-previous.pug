@@ -3,14 +3,14 @@ if previousActivity || nextActivity
     ul.pagination.justify-content-start
       li.page-item#previous-activity(class=(previousActivity ? undefined : "disabled"))
         if previousActivity
-          a.page-link(href=toValidPath("/" + repositoryName + "/" + activity.xourse.path + "/" + previousActivity),aria-label="previous activity")             
+          a.page-link(href="/" + repositoryName + "/" + activity.xourse.path + "/" + previousActivity,aria-label="previous activity")              
             | &larr; Vorige
         else
           span.page-link(aria-label="previous activity",href="#")              
             | &larr; Vorige
       li.page-item.ml-auto#next-activity(class=(nextActivity ? undefined : "disabled"),completion-blink="",aria-label="next activity")
         if nextActivity
-          a.page-link(href=toValidPath("/" + repositoryName + "/" + activity.xourse.path + "/" + nextActivity))
+          a.page-link(href="/" + repositoryName + "/" + activity.xourse.path + "/" + nextActivity)
             | <span id="next-activity-label">Volgende</span> &rarr;
         else
           span.page-link(aria-label="next activity")              

@@ -37,11 +37,7 @@ config.keywords       = pkg.keywords;
 config.environment    = process.env.NODE_ENV || 'development';
 
 config.port = process.env.PORT || 3000;
-config.subPath = process.env.SUB_PATH || ''
-config.root = (process.env.ROOT_URL || ('http://localhost:' + config.port)) + root.subPath;
-config.toValidPath = function (url) {
-    return `${config.subPath}${url}`
-};
+config.root = process.env.ROOT_URL || ('http://localhost:' + config.port);
 
 config.logging = false;
 

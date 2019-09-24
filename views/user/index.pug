@@ -15,9 +15,9 @@ block content
             th Seen
         tbody
           for user in users
-            tr(data-href=toValidPath(`/users/${user.id}`))
+            tr(data-href=`/users/${user.id}`)
               th(scope="row")
-                a(href=toValidPath(`/users/${user.id}`)) &hellip;#{user.id.slice(-5)}
+                a(href=`/users/${user.id}`) &hellip;#{user.id.slice(-5)}
               td
                 if user.imageUrl
                   img.img-responsive.img-rounded(src=user.imageUrl)
