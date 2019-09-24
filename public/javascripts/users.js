@@ -2,9 +2,11 @@ var $ = require('jquery');
 var _ = require('underscore');
 var moment = require('moment');
 
+
+
 exports.get = _.memoize( function(userId) {
     return $.ajax({
-	url: "/users/" + userId,
+	url: window.toValidPath("/users/" + userId),
 	headers: {Accept: "application/json;charset=utf-8"},
     });
 });
