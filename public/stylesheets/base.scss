@@ -17,6 +17,11 @@ $red:    #bb0000 !default;
 // Bootstrap v4 ftw
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 
+.embed-responsive {
+    width: 30vw; // Max 30% of view width
+    margin: 0 auto; // horizontal align
+}
+
 // Don't display hover on mobile devices
 @media (any-hover: hover) {
     .xourse-card.card:hover {
