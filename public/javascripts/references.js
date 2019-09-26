@@ -108,7 +108,7 @@ var createReference = function() {
 	}
 
 	$.ajax({
-	    url: "/labels/" + repository + "/" + href,
+		url: window.toValidPath("/labels/" + repository + "/" + href),
 	}).done(function(filename) {
 	    // BADBAD: test if I'm on the curent page
 	    if (filename == $("#theActivity").attr('data-path')) {

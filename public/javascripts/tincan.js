@@ -182,7 +182,7 @@ var uploadQueue = _.throttle( function() {
     queue = [];
     
     $.ajax({
-	url: "/" + repositoryName + '/xAPI/statements',
+		url: window.toValidPath("/" + repositoryName + '/xAPI/statements'),
 	type: 'POST',
 	data: data,
 	contentType: 'application/json',
